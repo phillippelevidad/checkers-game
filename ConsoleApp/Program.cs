@@ -6,9 +6,9 @@ using System.Threading;
 
 namespace ConsoleApp
 {
-    class Program
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             Game game = new();
             IArtificialIntelligence ai = new KamikazeArtificialIntelligence();
@@ -47,6 +47,7 @@ namespace ConsoleApp
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine($"{game.MovesHistory.Count} moves:");
+
             foreach (var move in game.MovesHistory.Reverse().Take(5))
             {
                 Console.WriteLine(move.Move);
