@@ -15,6 +15,7 @@ namespace Domain
 
         public Column(char letter)
         {
+            letter = char.ToUpper(letter);
             Guard.Against.OutOfRange(letter, nameof(letter), MinColumnLetter, MaxColumnLetter);
             Letter = letter;
             Number = Letter - LetterToNumberFactor;
