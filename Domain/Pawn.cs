@@ -23,7 +23,7 @@ namespace Domain
             return Owner.ToString();
         }
 
-        protected override IEnumerable<object> GetEqualityComponents()
+        protected override IEnumerable<object?> GetEqualityComponents()
         {
             yield return Owner;
         }

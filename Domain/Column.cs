@@ -25,8 +25,6 @@ namespace Domain
 
         public int Number { get; }
 
-        public static Result<Column> FromNumber(int number) => Try(number);
-
         public static Result<Column> Try(int number)
         {
             try
@@ -67,13 +65,13 @@ namespace Domain
             return Letter.ToString();
         }
 
-        protected override IEnumerable<object> GetEqualityComponents()
+        protected override IEnumerable<object?> GetEqualityComponents()
         {
             yield return Number;
         }
 
         public static explicit operator Column(char letter) => new(letter);
 
-        public static explicit operator Column(int number) => FromNumber(number).Value!;
+        public static explicit operator Column(int number) => Try(number).Value!;
     }
 }

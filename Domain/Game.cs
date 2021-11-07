@@ -80,7 +80,7 @@ namespace Domain
         {
             int CountPawns(Player player)
             {
-                return Board.Cells.Count(cell => cell.HasPawn && cell.Pawn!.Owner == player);
+                return Board.Cells.Count(cell => cell.Pawn is not null && cell.Pawn.Owner == player);
             }
 
             var player1Score = PawnsPerPlayer - CountPawns(Player.Player2);

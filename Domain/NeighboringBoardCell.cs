@@ -17,7 +17,7 @@ namespace Domain
         
         public MoveDirection Direction { get; }
 
-        protected override IEnumerable<object> GetEqualityComponents()
+        protected override IEnumerable<object?> GetEqualityComponents()
         {
             yield return Cell;
             yield return NextCell;

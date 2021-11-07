@@ -35,7 +35,7 @@ namespace Domain
             return Number.ToString();
         }
 
-        protected override IEnumerable<object> GetEqualityComponents()
+        protected override IEnumerable<object?> GetEqualityComponents()
         {
             yield return Number;
         }

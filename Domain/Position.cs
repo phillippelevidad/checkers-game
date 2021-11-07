@@ -69,7 +69,7 @@ namespace Domain
             return Name;
         }
 
-        protected override IEnumerable<object> GetEqualityComponents()
+        protected override IEnumerable<object?> GetEqualityComponents()
         {
             yield return Name;
         }
