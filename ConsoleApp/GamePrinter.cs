@@ -25,7 +25,7 @@ namespace ConsoleApp
             Console.WriteLine(print);
         }
 
-        private static void PrintBoard(Board board, MoveExcecution? lastMove)
+        private static void PrintBoard(Board board, MoveExecution? lastMove)
         {
             var rows = board.Cells.GroupBy(cell => cell.Position.Row).Reverse();
             PrintColumnLetters();
@@ -82,7 +82,7 @@ namespace ConsoleApp
             Console.BackgroundColor = ConsoleColor.Black;
         }
 
-        private static void PrintBlackCell(BoardCell cell, MoveExcecution? lastMove)
+        private static void PrintBlackCell(BoardCell cell, MoveExecution? lastMove)
         {
             Console.Write("|");
             if (lastMove is not null)

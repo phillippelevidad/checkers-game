@@ -7,7 +7,7 @@ namespace Domain
     {
         public const int PawnsPerPlayer = 12;
 
-        private readonly List<MoveExcecution> movesHistory = new();
+        private readonly List<MoveExecution> movesHistory = new();
 
         public Game()
         {
@@ -21,13 +21,13 @@ namespace Domain
 
         public Player CurrentPlayer { get; private set; }
 
-        public IReadOnlyList<MoveExcecution> MovesHistory => movesHistory.AsReadOnly();
+        public IReadOnlyList<MoveExecution> MovesHistory => movesHistory.AsReadOnly();
 
         public Score Score { get; private set; }
 
         public bool IsGameOver => Score.Player1Wins || Score.Player2Wins;
 
-        public Result<MoveExcecution> AttemptMove(Position fromPosition, Position toPosition)
+        public Result<MoveExecution> AttemptMove(Position fromPosition, Position toPosition)
         {
             var moveCalculation = MovesEngine
                 .CalculateValidMoves(Board, CurrentPlayer)
@@ -35,7 +35,7 @@ namespace Domain
 
             if (moveCalculation.IsFailure)
             {
-                return Result<MoveExcecution>.Failure(moveCalculation.Error!);
+                return Result<MoveExecution>.Failure(moveCalculation.Error!);
             }
 
             var execution = ExecuteMove(moveCalculation.Value!);
@@ -49,7 +49,7 @@ namespace Domain
             return execution;
         }
 
-        private MoveExcecution ExecuteMove(ValidMove move)
+        private MoveExecution ExecuteMove(ValidMove move)
         {
             var currentMove = move;
             while (currentMove is not null)
@@ -70,7 +70,7 @@ namespace Domain
                 currentMove = currentMove.FollowUpMove;
             }
 
-            var execution = new MoveExcecution(move.Player, move);
+            var execution = new MoveExecution(move.Player, move);
             movesHistory.Add(execution);
 
             return execution;

@@ -3,9 +3,9 @@ using System.Linq;
 
 namespace Domain
 {
-    public class MoveExcecution
+    public class MoveExecution
     {
-        public MoveExcecution(Player player, ValidMove move)
+        public MoveExecution(Player player, ValidMove move)
         {
             Player = player;
             Move = move;
