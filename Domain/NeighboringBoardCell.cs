@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-
-namespace Domain
+﻿namespace Domain
 {
-    public class NeighboringBoardCell : ValueObject
+    public record NeighboringBoardCell
     {
         public NeighboringBoardCell(BoardCell cell, BoardCell? nextCell, MoveDirection direction)
         {
@@ -16,12 +14,5 @@ namespace Domain
         public BoardCell? NextCell { get; }
         
         public MoveDirection Direction { get; }
-
-        protected override IEnumerable<object?> GetEqualityComponents()
-        {
-            yield return Cell;
-            yield return NextCell;
-            yield return Direction;
-        }
     }
 }

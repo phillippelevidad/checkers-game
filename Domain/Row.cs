@@ -1,9 +1,8 @@
 ﻿using Ardalis.GuardClauses;
-using System.Collections.Generic;
 
 namespace Domain
 {
-    public class Row : ValueObject
+    public record Row
     {
         public const int MaxRowNumber = 8;
         public const int MinRowNumber = 1;
@@ -33,11 +32,6 @@ namespace Domain
         public override string ToString()
         {
             return Number.ToString();
-        }
-
-        protected override IEnumerable<object?> GetEqualityComponents()
-        {
-            yield return Number;
         }
 
         public static explicit operator Row(int number) => new(number);

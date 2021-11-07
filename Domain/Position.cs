@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 namespace Domain
 {
-    public class Position : ValueObject
+    public record Position
     {
         public Position(Row row, Column column)
         {
@@ -67,11 +66,6 @@ namespace Domain
         public override string ToString()
         {
             return Name;
-        }
-
-        protected override IEnumerable<object?> GetEqualityComponents()
-        {
-            yield return Name;
         }
 
         public static explicit operator Position(string positionName) => FromName(positionName).Value!;

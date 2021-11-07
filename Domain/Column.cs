@@ -1,10 +1,9 @@
 ﻿using Ardalis.GuardClauses;
 using System;
-using System.Collections.Generic;
 
 namespace Domain
 {
-    public class Column : ValueObject
+    public record Column
     {
         private const int LetterToNumberFactor = 64;
 
@@ -63,11 +62,6 @@ namespace Domain
         public override string ToString()
         {
             return Letter.ToString();
-        }
-
-        protected override IEnumerable<object?> GetEqualityComponents()
-        {
-            yield return Number;
         }
 
         public static explicit operator Column(char letter) => new(letter);

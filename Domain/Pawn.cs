@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-
-namespace Domain
+﻿namespace Domain
 {
-    public class Pawn : ValueObject
+    public record Pawn
     {
         public Pawn(Player owner)
         {
@@ -21,11 +19,6 @@ namespace Domain
         public override string ToString()
         {
             return Owner.ToString();
-        }
-
-        protected override IEnumerable<object?> GetEqualityComponents()
-        {
-            yield return Owner;
         }
     }
 }
